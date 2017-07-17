@@ -14,7 +14,7 @@ class Component4 extends Component {
        console.log("Received props are - ", this.props);
 
    if(this.props.existingComponentState == null)
-      this.state = { text: 'Text 4' };
+      this.state = { text: '' };
    else
       this.state = this.props.existingComponentState;
  }
@@ -24,7 +24,8 @@ class Component4 extends Component {
     console.log(FILE_NAME + "In Render Method");
     return (
        <TextInput
-         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+         style={{height: 40, marginTop: 70}}
+           placeholder = 'Text 4'
          onChangeText={(text) => this.setState({text})}
          value={this.state.text}
          editable = {true}

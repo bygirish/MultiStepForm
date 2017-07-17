@@ -5,8 +5,6 @@ import { Text, View, BackAndroid, Alert } from 'react-native';
 
 import CurrentStepComponent from './../Component/CurrentStepComponent';
 
-// importing styles
-import styles from './styles';
 
 // constants
 const FILE_NAME = "MultiStepFormComponents.js : ";
@@ -44,7 +42,7 @@ class MultiStepFormComponents extends Component {
 
 
     return (
-        <View style = { styles.formComponentStyle }>
+        <View style = { this.props.styles }>
         {
            //<this.props.steps[this.props.currentStep].component />
         }

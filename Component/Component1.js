@@ -14,10 +14,10 @@ class Component1 extends Component {
    super(props);
   console.log("Received props are - ", this.props);
 
-    this.state = { text: 'Text 1' };
+    this.state = { text: '' };
 
    if(this.props.existingComponentState == null)
-      this.state = { text: 'Text 1' };
+      this.state = { text: '' };
    else
       this.state = this.props.existingComponentState;
 
@@ -29,7 +29,8 @@ class Component1 extends Component {
     return (
       <View>
        <TextInput
-         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+         style={{height: 40, marginTop: 10}}
+         placeholder = 'Text 1'
          onChangeText={(text) => this.setState({text})}
          value={this.state.text}
          editable = {true}

@@ -5,10 +5,6 @@ import { Text, View } from 'react-native';
 import PrevButton from './../Elements/PrevButton';
 import NextButton from './../Elements/NextButton';
 
-
-// importing styles
-import styles from './styles';
-
 // constants
 const FILE_NAME = "MultiStepFormAction.js : ";
 
@@ -28,9 +24,9 @@ class MultiStepFormAction extends Component {
     console.log("Current State is - ", this.state);
 
     return (
-        <View style = { styles.formActionStyle }>
+      <View style = { this.props.styles }>
 
-      <View>
+       <View>
        { this.showPrevButton() }
        </View>
        <View>
@@ -49,7 +45,7 @@ class MultiStepFormAction extends Component {
     if(this.props.currentStep != 0) {
 
       return (
-        <PrevButton onPrevClick = { this.props.onPrevClick } buttonText = 'Previous'  />
+        <PrevButton onPrevClick = { this.props.onPrevClick } style = { this.props.buttonStyle }  />
       );
     }
   }
@@ -63,12 +59,12 @@ class MultiStepFormAction extends Component {
     if(this.props.currentStep != this.props.steps.length - 1 ) {
 
       return (
-        <NextButton onNextClick = { this.props.onNextClick } buttonText = 'Forward'  />
+        <NextButton onNextClick = { this.props.onNextClick } style = { this.props.buttonStyle }  />
       );
     }
     else {
       return (
-        <NextButton onNextClick = { this.props.onNextClick } buttonText = 'Done'  />
+        <NextButton onNextClick = { this.props.onNextClick } style = {{ nextButtonText: 'Submit' }}  />
       );
     }
   }

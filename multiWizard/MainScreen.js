@@ -9,8 +9,7 @@ import Component2 from './../Component/Component2';
 import Component3 from './../Component/Component3';
 import Component4 from './../Component/Component4';
 
-// importing styles
-import styles from './styles';
+import customStyles from './customStyles';
 
 // constants
 const FILE_NAME = "MainScreen.js : ";
@@ -61,15 +60,14 @@ class MainScreen extends Component {
   }
 
   render() {
-
     return (
-        <View style = {{backgroundColor: styles.titleBackgroundColor}}>
-        <Text style = { styles.headingStyle }> { styles.headerText } </Text>
+      <View style = {{backgroundColor: '#34495e'}}>
         <MultiStepForm
           steps = { multiStepFormSteps }
           onFormSubmit = { (multiStepFormState) => this.onFormDone(multiStepFormState)}
+          styles = { customStyles }
         />
-        </View>
+      </View>
     );
   }
 

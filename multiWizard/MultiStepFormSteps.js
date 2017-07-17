@@ -3,8 +3,6 @@
 import React, { Component  } from 'react';
 import { Text, View } from 'react-native';
 
-// importing styles
-import styles from './styles';
 import Lines from './../styles/MultiStepFormSteps/Lines';
 import ShapesActive from './../styles/MultiStepFormSteps/ShapesActive';
 import ShapesDisabled from './../styles/MultiStepFormSteps/ShapesDisabled';
@@ -31,22 +29,21 @@ class MultiStepFormSteps extends Component {
 
   var multiStepHeader = [];
 
-	for(let i = 0; i < this.props.currentStep; i++){
+	for(let i = 0; i <= this.props.currentStep; i++){
 		multiStepHeader.push(
       <ShapesActive stepText = {this.props.steps[i].stepHeaderText} />
 		)
 	}
 
-  for(let i = this.props.currentStep; i <= this.props.steps.length - 1; i++){
+  for(let i = this.props.currentStep + 1; i <= this.props.steps.length - 1; i++){
 		multiStepHeader.push(
-      <View>
       <ShapesDisabled stepText = {this.props.steps[i].stepHeaderText} />
-      </View>
 		)
 	}
 
+
     return (
-        <View style = { styles.formStepsStyle }>
+        <View style = {this.props.styles} >
           {multiStepHeader}
         </View>
     );

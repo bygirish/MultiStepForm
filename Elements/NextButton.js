@@ -14,7 +14,7 @@ class NextButton extends Component {
     console.log(this.props);
     return(
       <TouchableOpacity onPress = { this.props.onNextClick }>
-      <ActionButton customButtonText = {this.props.buttonText} />
+      <ActionButton customButtonText = {this.props.style.nextButtonText} />
       </TouchableOpacity>
     );
   }

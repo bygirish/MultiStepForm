@@ -15,7 +15,7 @@ class Component2 extends Component {
     console.log("existingComponentState is - ", this.props.existingComponentState);
 
        if(this.props.existingComponentState == null)
-          this.state = { text: 'Text 2' };
+          this.state = { text: '' };
        else
           this.state = this.props.existingComponentState;
   }
@@ -25,7 +25,8 @@ class Component2 extends Component {
     console.log(FILE_NAME + "In Render Method");
     return (
        <TextInput
-         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+         style={{height: 40, marginTop: 30}}
+          placeholder = 'Text 2'
          onChangeText={(text) => this.setState({text})}
          value={this.state.text}
          editable = {true}

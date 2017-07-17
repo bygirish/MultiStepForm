@@ -14,7 +14,7 @@ class Component3 extends Component {
        console.log("Received props are - ", this.props);
 
    if(this.props.existingComponentState == null)
-      this.state = { text: 'Text 3' };
+      this.state = { text: '' };
    else
       this.state = this.props.existingComponentState;
  }
@@ -24,7 +24,8 @@ class Component3 extends Component {
     console.log(FILE_NAME + "In Render Method");
     return (
        <TextInput
-         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+         style={{height: 40, marginTop: 50}}
+          placeholder = 'Text 3'
          onChangeText={(text) => this.setState({text})}
          value={this.state.text}
          editable = {true}
@@ -41,7 +42,7 @@ class Component3 extends Component {
     this.props.saveComponentState(this.props.componentIndex, this.state);
 
   }
-  
+
   componentWillUnMount(){
 
     console.log(FILE_NAME + "In   componentWillUnMount Method");

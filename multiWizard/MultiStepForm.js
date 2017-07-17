@@ -7,9 +7,7 @@ import MultiStepFormSteps from './MultiStepFormSteps';
 import MultiStepFormComponents from './MultiStepFormComponents';
 import MultiStepFormAction from './MultiStepFormAction';
 
-
-// importing styles
-import styles from './styles';
+import defaultStyles from './defaultStyles';
 
 // constants
 const FILE_NAME = "MultiStepForm.js : ";
@@ -17,10 +15,7 @@ const FILE_NAME = "MultiStepForm.js : ";
 
 class MultiStepForm extends Component {
 
-
-
   constructor(props){
-
 
     console.log(FILE_NAME + "In constructor");
     super(props);
@@ -40,6 +35,48 @@ class MultiStepForm extends Component {
     };
 
     this.state =  this.initialState;
+
+    this.finalStyles = {
+
+        header: {
+          flexDirection: 'row',
+          backgroundColor: this.props.styles.header.backgroundColor ? this.props.styles.header.backgroundColor : defaultStyles.header.backgroundColor,
+          height: this.props.styles.header.height ? this.props.styles.header.height : defaultStyles.header.height,
+          marginTop: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+
+        body: {
+          backgroundColor: this.props.styles.body.backgroundColor ? this.props.styles.body.backgroundColor : defaultStyles.body.backgroundColor,
+          height: this.props.styles.body.height ? this.props.styles.body.height : defaultStyles.body.height,
+          marginTop: 10,
+        },
+
+        footer: {
+
+          padding: 10,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexDirection: 'row',
+          backgroundColor:  this.props.styles.footer.backgroundColor ? this.props.styles.footer.backgroundColor : defaultStyles.footer.backgroundColor,
+          height: this.props.styles.footer.height ? this.props.styles.footer.height : defaultStyles.footer.height,
+          marginTop: 10,
+
+        },
+
+        buttonStyle: {
+          buttonColor: this.props.styles.footer.buttonColor ? this.props.styles.footer.buttonColor : defaultStyles.buttonStyle.buttonColor,
+          nextButtonText: this.props.styles.footer.nextButtonText ? this.props.styles.footer.nextButtonText : defaultStyles.buttonStyle.nextButtonText,
+          prevButtonText: this.props.styles.footer.prevButtonText ? this.props.styles.footer.prevButtonText : defaultStyles.buttonStyle.prevButtonText,
+
+          textColor: this.props.styles.footer.textColor ? this.props.styles.footer.textColor : defaultStyles.buttonStyle.textColor,
+          buttonWidth: this.props.styles.footer.buttonWidth ? this.props.styles.footer.buttonWidth : defaultStyles.buttonStyle.buttonWidth,
+          buttonHeight: this.props.styles.footer.buttonHeight ? this.props.styles.footer.buttonHeight : defaultStyles.buttonStyle.buttonHeight,
+        }
+
+    }
+
   }
 
   render() {
@@ -51,11 +88,13 @@ class MultiStepForm extends Component {
     return (
         <View>
           <MultiStepFormSteps
+            styles = { this.finalStyles.header }
             currentStep = { this.state.currentStep }
             steps = { this.props.steps }
           />
 
           <MultiStepFormComponents
+            styles = { this.finalStyles.body }
             currentStep = { this.state.currentStep }
             steps = { this.props.steps }
             existingMultiStepFormComponentsState = {this.state.multiStepFormComponentsState}
@@ -63,6 +102,8 @@ class MultiStepForm extends Component {
           />
 
           <MultiStepFormAction
+            buttonStyle = { this.finalStyles.buttonStyle }
+            styles = { this.finalStyles.footer }
             onPrevClick = { this.updatePrevStep.bind(this) }
             onNextClick = { this.updateNextStep.bind(this) }
             currentStep = { this.state.currentStep }

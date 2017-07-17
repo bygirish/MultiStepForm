@@ -12,7 +12,7 @@ class ShapesDisabled extends Component {
 
   render(){
     return (
-      <View style = {{ margin: 10}}>
+      <View style = {{ margin: 10 }}>
 
         <View style = {{
           height: styles.Shape.height,
