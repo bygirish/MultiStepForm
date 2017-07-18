@@ -2,7 +2,7 @@
 
 // importing required libraries
 import React, { Component  } from 'react';
-import { Text, View, Image, TouchableOpacity, Alert, Modal, Dimensions, ScrollView } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Alert, Modal, Dimensions } from 'react-native';
 import MultiStepForm from './MultiStepForm';
 import Component1 from './../Component/Component1';
 import Component2 from './../Component/Component2';
@@ -57,26 +57,54 @@ class MainScreen extends Component {
 
   constructor(props){
     super(props);
+    var initialState = {
+      formCompleted: false,
+      multiStepFormStates: {},
+    };
+    this.state = initialState;
   }
 
   render() {
-    return (
-      <View style = {{backgroundColor: '#34495e'}}>
-        <MultiStepForm
-          steps = { multiStepFormSteps }
-          onFormSubmit = { (multiStepFormState) => this.onFormDone(multiStepFormState)}
-          styles = { customStyles }
-        />
-      </View>
-    );
+
+    if(!this.state.formCompleted) {
+      return (
+        <View style = {{backgroundColor: '#34495e'}}>
+          <MultiStepForm
+            steps = { multiStepFormSteps }
+            onFormSubmit = { (multiStepFormState) => this.onFormDone(multiStepFormState)}
+            styles = {customStyles}
+          />
+        </View>
+      );
+
+    }
+    else {
+      return(
+        <View style = {{backgroundColor: '#34495e'}}>
+          {
+            this.state.multiStepFormState.map( (data) => {
+              if(data != null)
+                return <Text>{data.text}</Text> ;
+            })
+
+          }
+        </View>
+      );
+    }
+
   }
 
   onFormDone(multiStepFormState){
 
-      console.log("MultiStep form state is -");
+      console.log("MultiStep form state is -", multiStepFormState);
 
       multiStepFormState.map( (data) => {
-          console.log("Form state is -" + data.formState );
+          console.log("Form state is -", data );
+      });
+
+      this.setState({
+        formCompleted: true,
+        multiStepFormState: multiStepFormState,
       });
 
   }

@@ -36,7 +36,9 @@ class MultiStepForm extends Component {
 
     this.state =  this.initialState;
 
-    this.finalStyles = {
+    if(this.props.styles)
+    {
+      this.finalStyles = {
 
         header: {
           flexDirection: 'row',
@@ -73,6 +75,7 @@ class MultiStepForm extends Component {
         },
 
         footer: {
+
           padding: 10,
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -80,6 +83,7 @@ class MultiStepForm extends Component {
           backgroundColor:  this.props.styles.footer.backgroundColor ? this.props.styles.footer.backgroundColor : defaultStyles.footer.backgroundColor,
         //  height: this.props.styles.footer.height ? this.props.styles.footer.height : defaultStyles.footer.height,
           marginTop: 10,
+
         },
 
         buttonStyle: {
@@ -91,8 +95,12 @@ class MultiStepForm extends Component {
           buttonHeight: this.props.styles.footer.buttonHeight ? this.props.styles.footer.buttonHeight : defaultStyles.buttonStyle.buttonHeight,
         }
 
-    }
+      }
 
+    }
+    else {
+        this.finalStyles = defaultStyles; 
+    }
   }
 
   render() {
@@ -101,36 +109,50 @@ class MultiStepForm extends Component {
 
     console.log("Current State is - ", this.state);
 
-    return (
-        <View>
-          <MultiStepFormSteps
-            styles = { this.finalStyles.header }
-            currentStep = { this.state.currentStep }
-            steps = { this.props.steps }
-            indicatorStyles = { this.finalStyles.indicatorStyles }
-          />
+    if(this.state.currentStep < this.props.steps.length)
+    {
+      return (
+          <View>
+            <MultiStepFormSteps
+              styles = { this.finalStyles.header }
+              currentStep = { this.state.currentStep }
+              steps = { this.props.steps }
+              indicatorStyles = { this.finalStyles.indicatorStyles }
+            />
 
-          <MultiStepFormComponents
-            styles = { this.finalStyles.body }
-            currentStep = { this.state.currentStep }
-            steps = { this.props.steps }
-            existingMultiStepFormComponentsState = {this.state.multiStepFormComponentsState}
-            saveComponentState = {(componentIndex, componentState) => this.updateFormState(componentIndex, componentState)}
-          />
+            <MultiStepFormComponents
+              styles = { this.finalStyles.body }
+              currentStep = { this.state.currentStep }
+              steps = { this.props.steps }
+              existingMultiStepFormComponentsState = {this.state.multiStepFormComponentsState}
+              saveComponentState = {(componentIndex, componentState) => this.updateFormState(componentIndex, componentState)}
+            />
 
-          <MultiStepFormAction
-            buttonStyle = { this.finalStyles.buttonStyle }
-            styles = { this.finalStyles.footer }
-            onPrevClick = { this.updatePrevStep.bind(this) }
-            onNextClick = { this.updateNextStep.bind(this) }
-            currentStep = { this.state.currentStep }
-            steps = { this.props.steps }
-          />
-        </View>
-    );
+            <MultiStepFormAction
+              buttonStyle = { this.finalStyles.buttonStyle }
+              styles = { this.finalStyles.footer }
+              onPrevClick = { this.updatePrevStep.bind(this) }
+              onNextClick = { this.updateNextStep.bind(this) }
+              currentStep = { this.state.currentStep }
+              steps = { this.props.steps }
+            />
+          </View>
+      );
+
+    }
+    else {
+
+      return null;
+
+    }
   }
 
 
+componentDidUpdate(){
+
+  if(this.state.currentStep >= this.props.steps.length)
+        this.props.onFormSubmit(this.state.multiStepFormComponentsState);
+}
 
 updateFormState = (componentIndex, componentState) => {
 
@@ -140,10 +162,11 @@ updateFormState = (componentIndex, componentState) => {
   console.log("Component Index is - ", componentIndex);
   console.log("Component State is - ", componentState);
 
-
+/*
   if(this.state.currentStep == this.props.steps.length)
       this.props.onFormSubmit(this.multiStepFormComponentsState);
   else
+  */
       this.state.multiStepFormComponentsState[componentIndex] = componentState;
 
 }
