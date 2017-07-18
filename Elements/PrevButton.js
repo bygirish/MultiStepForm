@@ -14,10 +14,10 @@ class PrevButton extends Component {
   render(){
     return(
       <TouchableOpacity onPress = { this.props.onPrevClick }>
-        <ActionButton customButtonText = {this.props.style.prevButtonText} />
+        <ActionButton customButtonText = {this.props.style.prevButtonText} customButtonStyle = {this.props.style}/>
       </TouchableOpacity>
     );
   }
-}
 
+}
 export default PrevButton;

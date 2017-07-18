@@ -11,6 +11,24 @@ export default {
       alignItems: 'center',
     },
 
+    indicatorStyles: {
+      lineColor: 'orange',
+      lineWidth: 30,
+      lineHeight: 5,
+
+      stepActiveTextColor: 'white',
+      stepDisabledTextColor: 'black',
+
+      stepActiveBackgroundColor: '#2C3E50',
+      stepDisabledBackgroundColor: '#D2D7D3',
+
+      stepHeight: 30,
+      stepWidth: 30,
+      stepBorderWidth: 0,
+      stepBorderColor: 'white',
+      stepRadius: 10,
+    },
+
     body: {
       backgroundColor: "#f0f8ff",
       height: Dimensions.get('window').height * 0.8,

@@ -11,10 +11,10 @@ class NextButton extends Component {
   }
 
   render(){
-    console.log(this.props);
+    console.log("nextbutton",this.props);
     return(
       <TouchableOpacity onPress = { this.props.onNextClick }>
-      <ActionButton customButtonText = {this.props.style.nextButtonText} />
+      <ActionButton customButtonText = {this.props.style.nextButtonText} customButtonStyle = {this.props.style} />
       </TouchableOpacity>
     );
   }

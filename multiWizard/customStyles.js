@@ -31,7 +31,6 @@ export default {
   footer: {
     height: Dimensions.get('window').height * 0.1,
     backgroundColor: "#6C7A89",
-
     nextButtonText:'Next',
     prevButtonText:'Prev',
     textColor: 'black',

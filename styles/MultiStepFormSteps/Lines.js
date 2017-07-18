@@ -4,12 +4,16 @@ import { View } from 'react-native';
 import styles from './MultiStepFormStepsStyle';
 
 class Lines extends Component {
+
+  constructor(props){
+    super(props);
+  }
   render(){
     return (
       <View style = {{
-        height: styles.Line.height,
-        width: styles.Line.width,
-        backgroundColor: styles.Line.color,
+        height: this.props.style.lineHeight,
+        width: this.props.style.lineWidth,
+        backgroundColor: this.props.style.lineColor,
       }} />
     );
   }

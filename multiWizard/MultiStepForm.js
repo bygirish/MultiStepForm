@@ -47,6 +47,24 @@ class MultiStepForm extends Component {
           alignItems: 'center',
         },
 
+        indicatorStyles: {
+          lineColor: this.props.styles.header.lineColor ? this.props.styles.header.lineColor : defaultStyles.indicatorStyles.lineColor,
+          lineWidth: this.props.styles.header.lineWidth ? this.props.styles.header.lineWidth :  defaultStyles.indicatorStyles.lineWidth,
+          lineHeight: this.props.styles.header.lineHeight ? this.props.styles.header.lineHeight : defaultStyles.indicatorStyles.lineHeight,
+
+          stepActiveTextColor: this.props.styles.header.stepActiveTextColor ? this.props.styles.header.stepActiveTextColor : defaultStyles.indicatorStyles.stepActiveTextColor,
+          stepDisabledTextColor: this.props.styles.header.stepDisabledTextColor ? this.props.styles.header.stepDisabledTextColor :  defaultStyles.indicatorStyles.stepDisabledTextColor,
+
+          stepActiveBackgroundColor: this.props.styles.header.stepActiveBackgroundColor ? this.props.styles.header.stepActiveBackgroundColor :  defaultStyles.indicatorStyles.stepActiveBackgroundColor,
+          stepDisabledBackgroundColor: this.props.styles.header.stepDisabledBackgroundColor ? this.props.styles.header.stepDisabledBackgroundColor :  defaultStyles.indicatorStyles.stepDisabledBackgroundColor,
+
+          stepHeight: this.props.styles.header.stepHeight ? this.props.styles.header.stepHeight :  defaultStyles.indicatorStyles.stepHeight,
+          stepWidth: this.props.styles.header.stepWidth ? this.props.styles.header.stepWidth :  defaultStyles.indicatorStyles.stepWidth,
+          stepBorderWidth: this.props.styles.header.stepBorderWidth ? this.props.styles.header.stepBorderWidth :  defaultStyles.indicatorStyles.stepBorderWidth,
+          stepBorderColor: this.props.styles.header.stepBorderColor ? this.props.styles.header.stepBorderColor :  defaultStyles.indicatorStyles.stepBorderColor,
+          stepRadius: this.props.styles.header.stepRadius ? this.props.styles.header.stepRadius :  defaultStyles.indicatorStyles.stepRadius,
+        },
+
         body: {
           backgroundColor: this.props.styles.body.backgroundColor ? this.props.styles.body.backgroundColor : defaultStyles.body.backgroundColor,
           height: this.props.styles.body.height ? this.props.styles.body.height : defaultStyles.body.height,
@@ -69,7 +87,6 @@ class MultiStepForm extends Component {
           buttonColor: this.props.styles.footer.buttonColor ? this.props.styles.footer.buttonColor : defaultStyles.buttonStyle.buttonColor,
           nextButtonText: this.props.styles.footer.nextButtonText ? this.props.styles.footer.nextButtonText : defaultStyles.buttonStyle.nextButtonText,
           prevButtonText: this.props.styles.footer.prevButtonText ? this.props.styles.footer.prevButtonText : defaultStyles.buttonStyle.prevButtonText,
-
           textColor: this.props.styles.footer.textColor ? this.props.styles.footer.textColor : defaultStyles.buttonStyle.textColor,
           buttonWidth: this.props.styles.footer.buttonWidth ? this.props.styles.footer.buttonWidth : defaultStyles.buttonStyle.buttonWidth,
           buttonHeight: this.props.styles.footer.buttonHeight ? this.props.styles.footer.buttonHeight : defaultStyles.buttonStyle.buttonHeight,
@@ -91,6 +108,7 @@ class MultiStepForm extends Component {
             styles = { this.finalStyles.header }
             currentStep = { this.state.currentStep }
             steps = { this.props.steps }
+            indicatorStyles = { this.finalStyles.indicatorStyles }
           />
 
           <MultiStepFormComponents

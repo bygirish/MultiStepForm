@@ -15,21 +15,21 @@ class ShapesDisabled extends Component {
       <View style = {{ margin: 10 }}>
 
         <View style = {{
-          height: styles.Shape.height,
-          width: styles.Shape.width,
-          backgroundColor: styles.Shape.disabledColor,
-          borderRadius: styles.Shape.radius,
+          height: this.props.style.stepHeight,
+          width: this.props.style.stepWidth,
+          backgroundColor: this.props.style.stepDisabledBackgroundColor,
+          borderRadius: this.props.style.stepRadius,
           justifyContent: 'center',
           alignItems: 'center',
-          borderWidth: styles.Shape.borderWidth,
-          borderColor: styles.Shape.borderColor,
+          borderWidth: this.props.style.stepBorderWidth,
+          borderColor: this.props.style.stepBorderColor,
         }} >
 
-          <Text style = {{color: styles.Shape.disabledTextColor}}> {this.props.stepText} </Text>
+          <Text style = {{ color: this.props.style.stepDisabledTextColor }}> {this.props.stepText} </Text>
 
         </View>
 
-        <Lines />
+        <Lines style = { this.props.style }/>
 
       </View>
     );

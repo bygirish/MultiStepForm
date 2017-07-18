@@ -12,11 +12,10 @@ class ActionButton extends Component {
   render(){
     return (
 
-
         <View style = {{
-          height: styles.customButton.height,
-          width: styles.customButton.width,
-          backgroundColor: styles.customButton.color,
+          height: this.props.customButtonStyle.buttonHeight,
+          width: this.props.customButtonStyle.buttonWidth,
+          backgroundColor: this.props.customButtonStyle.buttonColor,
           borderRadius: styles.customButton.radius,
           justifyContent: 'center',
           alignItems: 'center',
@@ -24,7 +23,7 @@ class ActionButton extends Component {
           borderColor: styles.customButton.borderColor,
         }} >
 
-          <Text style = {{color: styles.customButton.buttonTextColor}}> {this.props.customButtonText} </Text>
+          <Text style = {{color: this.props.customButtonStyle.textColor}}> {this.props.customButtonText} </Text>
 
         </View>
 

@@ -31,13 +31,13 @@ class MultiStepFormSteps extends Component {
 
 	for(let i = 0; i <= this.props.currentStep; i++){
 		multiStepHeader.push(
-      <ShapesActive stepText = {this.props.steps[i].stepHeaderText} />
+      <ShapesActive stepText = {this.props.steps[i].stepHeaderText} style = { this.props.indicatorStyles } />
 		)
 	}
 
   for(let i = this.props.currentStep + 1; i <= this.props.steps.length - 1; i++){
 		multiStepHeader.push(
-      <ShapesDisabled stepText = {this.props.steps[i].stepHeaderText} />
+      <ShapesDisabled stepText = {this.props.steps[i].stepHeaderText} style = { this.props.indicatorStyles } />
 		)
 	}
 
