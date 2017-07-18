@@ -35,8 +35,6 @@ class Component1 extends Component {
          value={this.state.text}
          editable = {true}
        />
-
-
       </View>
      );
   }

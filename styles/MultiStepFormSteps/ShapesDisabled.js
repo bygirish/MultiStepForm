@@ -23,13 +23,15 @@ class ShapesDisabled extends Component {
           alignItems: 'center',
           borderWidth: this.props.style.stepBorderWidth,
           borderColor: this.props.style.stepBorderColor,
+          padding: 5
         }} >
 
-          <Text style = {{ color: this.props.style.stepDisabledTextColor }}> {this.props.stepText} </Text>
+          <Text style = {{ color: this.props.style.stepDisabledTextColor }}> {this.props.step.stepHeaderText} </Text>
 
         </View>
 
         <Lines style = { this.props.style }/>
+        <Text style = {{alignSelf: 'center'}}> { this.props.step.name } </Text>
 
       </View>
     );

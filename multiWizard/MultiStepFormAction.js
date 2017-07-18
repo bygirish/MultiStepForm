@@ -64,7 +64,7 @@ class MultiStepFormAction extends Component {
     }
     else {
       return (
-      <NextButton onNextClick = { this.props.onNextClick } style = {{...this.props.buttonStyle, nextButtonText: 'Submit'}}  />
+        <NextButton onNextClick = { this.props.onNextClick } style = {{...this.props.buttonStyle, nextButtonText: 'Submit'}}  />
       );
     }
   }

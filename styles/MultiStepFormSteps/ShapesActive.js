@@ -12,6 +12,7 @@ class ShapesActive extends Component {
 
   render(){
     return (
+    <View>
       <View style = {{
         height: this.props.style.stepHeight,
         width: this.props.style.stepWidth,
@@ -22,8 +23,13 @@ class ShapesActive extends Component {
         borderWidth: this.props.style.stepBorderWidth,
         borderColor: this.props.style.stepBorderColor,
         margin: 10,
+        marginBottom: 0,
+
+        padding: 5
       }} >
-      <Text style = {{color: this.props.style.stepActiveTextColor }}> {this.props.stepText} </Text>
+        <Text style = {{color: this.props.style.stepActiveTextColor }}> {this.props.step.stepHeaderText} </Text>
+      </View>
+      <Text style = {{paddingLeft: 10, paddingRight: 10, alignSelf: 'center'}}>{ this.props.step.name }</Text>
       </View>
     );
   }

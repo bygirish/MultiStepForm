@@ -2,7 +2,7 @@
 
 // importing required libraries
 import React, { Component  } from 'react';
-import { Text, View, Image, TouchableOpacity, Alert, Modal, Dimensions } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Alert, Modal, Dimensions, ScrollView } from 'react-native';
 import MultiStepForm from './MultiStepForm';
 import Component1 from './../Component/Component1';
 import Component2 from './../Component/Component2';
@@ -17,7 +17,7 @@ const FILE_NAME = "MainScreen.js : ";
 var multiStepFormSteps = [
 
   {
-    name: 'Step 1',
+    name: 'Basic Details',
     component: <Component1 {...this.props} />,
     nextButtonText: 'Next',
     stepHeaderText: '1',
@@ -25,7 +25,7 @@ var multiStepFormSteps = [
   },
 
   {
-    name: 'Step 2',
+    name: 'Travel Booking',
     component: <Component2 {...this.props} />,
     nextButtonText: 'Next',
     prevButtonText: 'Go Back',
@@ -34,22 +34,22 @@ var multiStepFormSteps = [
   },
 
   {
-    name: 'Step 3',
-    component: <Component3 {...this.props} />,
+    name: 'Stay Details',
+    component:<Component3 {...this.props} />,
     nextButtonText: 'Next',
     prevButtonText: 'Go Back',
     stepHeaderText: '3',
     formState: null
   },
 
-  {
-    name: 'Step 4',
-    component: <Component4 {...this.props} />,
-    nextButtonText: 'Done',
-    prevButtonText: 'Go Back',
-    stepHeaderText: '4',
-    formState: null
-  }
+    {
+      name: 'Local Travel Details',
+      component:<Component4 {...this.props} />,
+      nextButtonText: 'Done',
+      prevButtonText: 'Go Back',
+      stepHeaderText: '4',
+      formState: null
+    },
 
 ];
 
