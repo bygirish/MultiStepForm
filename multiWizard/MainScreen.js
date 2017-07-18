@@ -17,7 +17,7 @@ const FILE_NAME = "MainScreen.js : ";
 var multiStepFormSteps = [
 
   {
-    name: 'Basic Details',
+    name: 'Basic',
     component: <Component1 {...this.props} />,
     nextButtonText: 'Next',
     stepHeaderText: '1',
@@ -25,7 +25,7 @@ var multiStepFormSteps = [
   },
 
   {
-    name: 'Travel Booking',
+    name: 'Travel',
     component: <Component2 {...this.props} />,
     nextButtonText: 'Next',
     prevButtonText: 'Go Back',
@@ -34,7 +34,7 @@ var multiStepFormSteps = [
   },
 
   {
-    name: 'Stay Details',
+    name: 'Stay',
     component:<Component3 {...this.props} />,
     nextButtonText: 'Next',
     prevButtonText: 'Go Back',
@@ -43,13 +43,21 @@ var multiStepFormSteps = [
   },
 
     {
-      name: 'Local Travel Details',
+      name: 'Local',
       component:<Component4 {...this.props} />,
       nextButtonText: 'Done',
       prevButtonText: 'Go Back',
       stepHeaderText: '4',
       formState: null
     },
+
+
+
+
+
+
+
+
 
 ];
 

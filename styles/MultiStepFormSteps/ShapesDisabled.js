@@ -12,7 +12,7 @@ class ShapesDisabled extends Component {
 
   render(){
     return (
-      <View style = {{ margin: 10 }}>
+      <View style = {{ margin: 10, marginTop: 15, }}>
 
         <View style = {{
           height: this.props.style.stepHeight,
