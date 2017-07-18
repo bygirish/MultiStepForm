@@ -25,7 +25,7 @@ export default {
 
   body: {
     backgroundColor: "#f0f8ff",
-    height: Dimensions.get('window').height * 0.5,
+    height: Dimensions.get('window').height * 0.55,
   },
 
   footer: {

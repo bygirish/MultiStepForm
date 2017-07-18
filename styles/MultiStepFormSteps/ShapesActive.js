@@ -24,7 +24,6 @@ class ShapesActive extends Component {
         borderColor: this.props.style.stepBorderColor,
         margin: 10,
         marginBottom: 0,
-
         padding: 5
       }} >
         <Text style = {{color: this.props.style.stepActiveTextColor }}> {this.props.step.stepHeaderText} </Text>
