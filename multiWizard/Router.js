@@ -6,6 +6,8 @@ import Start from './Start';
 
 const RouterComp = () => {
   console.log('In RouterComp');
+
+//  console.log = () => {};
   return(
     <Router>
       <Scene key = "Start" initial component = { Start } hideNavBar />
