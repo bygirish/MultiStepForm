@@ -51,14 +51,6 @@ var multiStepFormSteps = [
       formState: null
     },
 
-
-
-
-
-
-
-
-
 ];
 
 class MainScreen extends Component {
@@ -80,7 +72,8 @@ class MainScreen extends Component {
           <MultiStepForm
             steps = { multiStepFormSteps }
             onFormSubmit = { (multiStepFormState) => this.onFormDone(multiStepFormState)}
-            styles = {customStyles}
+            styles = { customStyles }
+            enableSteps = {false}
           />
         </View>
       );

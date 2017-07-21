@@ -11,6 +11,24 @@ class ShapesActive extends Component {
   }
 
   render(){
+
+    var title;
+    if(!this.props.header){
+      title = <Text style = {{color: this.props.style.stepActiveTextColor }}> {this.props.step.stepHeaderText} </Text> }
+    else {
+      title = <Text style = {{color: this.props.style.stepActiveTextColor, paddingRight: 4 }}> {this.props.step.name}</Text>  }
+
+    var baseText;
+
+    if(!this.props.header){
+      baseText =
+      <Text style = {{marginBottom: 10, paddingLeft: 10, paddingRight: 10, alignSelf: 'center'}}>{ this.props.step.name }</Text>
+    }
+    else {
+      baseText =   <Text></Text>;
+    }
+
+
     return (
     <View >
       <View style = {{
@@ -25,11 +43,15 @@ class ShapesActive extends Component {
         margin: 10,
         marginBottom: 0,
         padding: 5,
-      }} >
-        <Text style = {{color: this.props.style.stepActiveTextColor }}> {this.props.step.stepHeaderText} </Text>
+        }} >
+
+        {title}
+
       </View>
-      <Text style = {{marginBottom: 10, paddingLeft: 10, paddingRight: 10, alignSelf: 'center'}}>{ this.props.step.name }</Text>
-      </View>
+      {baseText}
+    </View>
+
+
     );
   }
 }

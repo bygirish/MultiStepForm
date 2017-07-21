@@ -6,6 +6,7 @@ import { Text, View } from 'react-native';
 import MultiStepFormSteps from './MultiStepFormSteps';
 import MultiStepFormComponents from './MultiStepFormComponents';
 import MultiStepFormAction from './MultiStepFormAction';
+import MultiStepFormHeader from './MultiStepFormHeader';
 
 import defaultStyles from './defaultStyles';
 
@@ -99,7 +100,7 @@ class MultiStepForm extends Component {
 
     }
     else {
-        this.finalStyles = defaultStyles; 
+        this.finalStyles = defaultStyles;
     }
   }
 
@@ -109,16 +110,32 @@ class MultiStepForm extends Component {
 
     console.log("Current State is - ", this.state);
 
+    var stepHeader;
+    if(this.props.enableSteps){
+      stepHeader =
+      <MultiStepFormSteps
+        styles = { this.finalStyles.header }
+        currentStep = { this.state.currentStep }
+        steps = { this.props.steps }
+        indicatorStyles = { this.finalStyles.indicatorStyles }
+      /> ;
+    }
+    else{
+      stepHeader =
+      <MultiStepFormHeader
+        styles = { this.finalStyles.header }
+        currentStep = { this.state.currentStep }
+        steps = { this.props.steps }
+        indicatorStyles = { this.finalStyles.indicatorStyles }
+      /> ;
+    }
+
     if(this.state.currentStep < this.props.steps.length)
     {
       return (
           <View>
-            <MultiStepFormSteps
-              styles = { this.finalStyles.header }
-              currentStep = { this.state.currentStep }
-              steps = { this.props.steps }
-              indicatorStyles = { this.finalStyles.indicatorStyles }
-            />
+
+            {stepHeader}
 
             <MultiStepFormComponents
               styles = { this.finalStyles.body }
