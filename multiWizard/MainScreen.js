@@ -73,7 +73,7 @@ class MainScreen extends Component {
             steps = { multiStepFormSteps }
             onFormSubmit = { (multiStepFormState) => this.onFormDone(multiStepFormState)}
             styles = { customStyles }
-            enableSteps = {false}
+            enableSteps = { true }
           />
         </View>
       );
